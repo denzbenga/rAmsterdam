@@ -1,5 +1,8 @@
 library(ggplot2)
 library(compmus)
+library(dplyr)
+library(tidyverse)
+
 
 onSight |>
   compmus_wrangle_timbre() |> 
