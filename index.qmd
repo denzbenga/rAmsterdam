@@ -22,6 +22,6 @@ Second row ayyy
 ## Column {width=60%}
 
 :::{.card}
-I am trying to add a colum to the right
+I am trying to add a column to the right
 :::
 
