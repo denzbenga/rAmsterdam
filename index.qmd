@@ -1,0 +1,27 @@
+---
+title: "Comp Mus Portfolio"
+author: "Daniel Thomas Collins"
+format:
+  dashboard:
+    orientation: columns
+editor: visual
+---
+
+# Welcome to Computational Musicology!
+
+## Column {width=40%}
+
+:::{.card}
+Welcome yada yadda ayyy
+:::
+
+:::{.card}
+Second row ayyy
+:::
+
+## Column {width=60%}
+
+:::{.card}
+I am trying to add a colum to the right
+:::
+
