@@ -105,15 +105,20 @@ grid-auto-rows: minmax(0, 1fr);">
 </div><div class="card tabset html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-header dashboard-card-no-title bslib-navs-card-title">
 
-<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-3"><li class="nav-item" role="presentation"><a href="#card-tabset-3-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Chart 1" aria-selected="true" class="nav-link active">Chart 1</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-3-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="README" aria-selected="false" class="nav-link">README</a></li></ul></div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-3"><li class="nav-item" role="presentation"><a href="#card-tabset-3-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="README1" aria-selected="true" class="nav-link active">README1</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-3-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="README2" aria-selected="false" class="nav-link">README2</a></li></ul></div>
 
 
 <div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
 
 </div>
-<div class="tab-content html-fill-item html-fill-container" data-tabset-id="card-tabset-3"><div class="tab-pane active show html-fill-item html-fill-container" role="tabpanel" id="card-tabset-3-1"><div class="card-body html-fill-item html-fill-container" data-title="Chart 1">
-<p>I am trying to add a column to the right</p>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-3-2"><div class="card-body html-fill-item html-fill-container" data-title="README">
+<div class="tab-content html-fill-item html-fill-container" data-tabset-id="card-tabset-3"><div class="tab-pane active show html-fill-item html-fill-container" role="tabpanel" id="card-tabset-3-1"><div class="card-body html-fill-item html-fill-container" data-title="README1">
+<p>This is my update for week 11.</p>
+<p>I have made tempo visualizations for “On Sight” by Kanye West, which is the same song on README2. Here are the ACT and DFT tempo graphs, respectively:</p>
+<img src="on_sight_act_graph.png" class="img-fluid">
+<img src="on_sight_dft_graph.png" class="img-fluid">
+<p>To be honest, I’m really not sure what to make of these. As I describe in the other tab, On Sight has a huge switchup at 1:16, where the song switches briefly from industrial techno hip hop to a sample of a children’s choir. This section is in a totally different tempo, and when I run it through the bar and beat tracker in sonic visualizer, it does recognize this tempo change (although it does a rather poor job at it). However, these visualizations both show no tempo changes at that time frame. In fact, the DFT only shows a tempo change around 125 seconds, which is actually just because the beat gets incredibly syncopated and hard to follow, rather than the tempo changing.</p>
+<p>I will have to do some more work into figuring out how these tempo algorithms work, because there is definitely one thing about Drake and Kanye’s music from the early 2010s that stands out, which is really unexpected beat switches. These almost always accompany a tempo shift of some kind, and it is something that was not done much before either of them around this period. Hip hop music is incredibly static in its tempos, as it nowadays relies a lot on drum programming, and in the past, it was almost entirely sample based, meaning the same drum kit sample was played throughout the entire song. So, the way tempo changes take place in these two artists’ music is totally different from the more smooth changes in tempo across genres like romantic or baroque music.</p>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-3-2"><div class="card-body html-fill-item html-fill-container" data-title="README2">
 <p>This is my text to accompany my visualizations.</p>
 <p>I made a number of visualizations for four songs, all uploaded to my Github. These songs are: “On Sight” and “Say You Will” by Kanye West, and “The Motion” and “10 Bands” (spelled ten_bands in files for organization) by Drake.</p>
 <p>Here are some interesting observations:</p>
