@@ -11,7 +11,7 @@ editor: visual
 
 # Week12
 
-::::::::: columns
+::::: columns
 :::: {.column width="100%"}
 ::: card
 ### Week12
@@ -29,8 +29,7 @@ Some of the connections made by the dendrogram match up with what I personally f
 
 This cluster chart is of all of the two artists' songs in the corpus. I chose liveness as I personally thought there would be heavy clustering of Kanye's earlier music as more "live" given its heavy use of soul samples. There appears to be more of his music along the middle to high edges of liveness than Drake, although not too much. A key issue here is the inability to see what songs or albums are responsible for each dot. I attempted to set this graph to function with album names, but I had no success unfortunately. What I may have to do for my final corpus is make two separate versions of this graph, one for each artist, with albums separated by colours. I do not think it would be possible to put them both on the same graph, as that would be far too many albums for one graph, rendering it largely unreadable.
 ::::
-
-:::::::::
+:::::
 
 # Track Features
 
