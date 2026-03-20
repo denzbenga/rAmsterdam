@@ -1,0 +1,94 @@
+CANVAS: Background: Which tracks did you submit? Why? How did you create them?
+
+DANIEL: This will be my first page. Here's what I want to talk about:
+        - I submitted a corpus with all of Drake and Kanye's songs from
+        the years 2004 to 2016, ending at Views by Drake. 
+        - I chose them because they were hugely influential to the hip hop scene
+        when they broke out. Kanye brought in a new sound, away from gangster rap
+        and towards soul sampling (Provide evidence)
+            - Drake brought in strong melodic content, with an opening of the 
+            rapper's emotion onto the scene that saw much of hip hop combine
+            R&B and Rapping. It is DEFINITELY worth noting that Kanye's 808's
+            bears much resemblance to this wave that Drake ushered in.
+        - I am going to choose songs that are very emblematic of different eras
+        and albums. I will qualify this with both knowledge and perhaps streaming
+        numbers/popularity scores, maybe even with similarity groupings to other 
+        songs on the album. I THINK IT IS A GOOD IDEA TO DO CLUSTERING TO JUSTIFY
+        WHAT TRACKS I CHOOSE TO FOCUS ON. FOR EXAMPLE, ON SIGHT IS A BETTER EXAMPLE
+        OF YEEZUS THAN BOUND 2 (IN MY OPINION), BUT CAN I CORROBORATE THAT CLAIM
+        USING THE DATA?
+
+CANVAS: Track-level features: What insights into your tracks can be drawn from track-level 
+features of the class corpus (valence, genre, etc.)?
+
+DANIEL: This will come down to what I analyze. I am hoping to see clear trends
+from album to album in, definitely in topics of Valence, Energy, Danceability,
+Instrumentalness, and maybe even Key. I cannot draw conclusions yet.
+
+
+CANVAS: Chroma features [pitch]: What insights into your tracks can be drawn from chroma 
+features?
+
+DANIEL: I am hoping to find interesting information about how varied the harmonic 
+information tends to be across their albums. For example, 808s and heartbreak has 
+notoriously simple instrumentals, with long drones and not much variation in harmonic
+center. I am hoping that some other parts of their music may reflect a change or
+consistency with these patterns. For example, I would Yeezus to have some sporadic 
+harmonic shifts like in On Sight, or for Graduation to be quite rich with full chords
+compared to a song such as The Motto.
+
+
+CANVAS: Loudness [volume]: What insights into your tracks can be drawn from loudness or 
+power, either at the track level or the section level?
+
+DANIEL: I think there would be interesting shifts WITHIN albums for both artists,
+particularly Drake. I'd be very interested to see also a comparison of loudness
+(as a measurement of energy) from What a Time to be Alive and IYRTITL to Take Care.
+I would also be curious about 808s compared MBDTF and Yeezus, also compared to Ye's
+first two albums. 
+Within sections, I'd be curious to see if either artists has larger shifts within
+songs at any point, like does Drake have shifts from high energy rap to somber singing
+more than Kanye has loudness variation?
+
+CANVAS: Timbre features [timbre]: What insights into your tracks can be drawn from 
+timbre features?
+
+DANIEL: I think I will have to stick to self-similarity matrices for this kinda thing.
+They both have quite a bit of difference within songs in regards to beat switches.
+However, I am honestly not certain there will be much to show. For example, much of 
+Drake's 2010s music is quite dark in character. How will that show up in the MFCCs?
+Will it pay a lot of attention to high frequency information where 40's synthesizers
+often do not take up much space?
+
+
+CANVAS: Temporal features [duration]: What is notable, effective, or ineffective about 
+structural segments, metre, rhythm, or beats in your tracks?
+
+DANIEL: I am curious to see how well it handles much of the moodier drake tracks, 
+such as Wednesday Night Interlude or Marvin's Room. Metre should generally be pretty 
+simple. I honestly doubt that temporal features will find much of anything. I
+will need to check out the difference between spectral and novelty tempograms.
+
+
+CANVAS: Clustering: Which features generate potentially meaningful clusters? 
+OR Classification/regression [advanced alternative]: 
+How effective are the features in our class corpus for classification or regression?
+
+DANIEL: I think, like I said above, energy, valence, key, and maybe danceability 
+should hold the key to the best clustering.
+
+CANVAS: Contribution: What have you learned from this set of analyses? 
+Who could these conclusions benefit, and how?
+
+DANIEL: Will find out at the end.
+
+
+GENERAL PREDICTIONS:
+I think Dropout and Late registration will be high similarity
+I think WATTBA and IYRTITL will be very similar
+I think Yeezus and NWTS will be NOTHING alike.
+I think Yeezus and 808s will be the most unusual albums in either artist's catalogue
+I think 808s may actually be an outlier as a not speechy, very melodic kanye album.
+  I do NOT think you will see a speechiness trend for him.
+  I think speechiness will overall be higher for Ye than Drake
+  

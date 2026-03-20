@@ -166,3 +166,107 @@ indie |>
   )
 
 clean_corpus <- album_means[1:228, ]
+
+
+
+
+#Vrijdag Maart Twintig Code
+
+my_corp_recipe <-
+  recipe(
+    artist_name ~
+      danceability +
+      energy +
+      loudness +
+      speechiness +
+      acousticness +
+      instrumentalness +
+      liveness +
+      valence +
+      tempo +
+      song_dur,
+    data = clean_corpus                    # Use the same name as the previous block.
+  ) |>
+  step_center(all_predictors()) |>
+  step_scale(all_predictors())      # Converts to z-scores.
+# step_range(all_predictors())    # Sets range to [0, 1].
+
+#attempt #2 with IYRTITL's updated column names
+iyrtitl_recipe <-
+  recipe(
+    `Track Name` ~
+      Danceability +
+      Energy +
+      Loudness +
+      Speechiness +
+      Acousticness +
+      Instrumentalness +
+      Liveness +
+      Valence +
+      Tempo +
+      `Duration (ms)`,
+    data = iyrtitl_corpus                    # Use the same name as the previous block.
+  ) |>
+  step_center(all_predictors()) |>
+  step_scale(all_predictors())      # Converts to z-scores.
+# step_range(all_predictors())    # Sets range to [0, 1].
+
+
+
+#Making the Random Forest
+
+workflow() |> 
+  add_recipe(iyrtitl_recipe) |> 
+  add_model(forest_model) |> 
+  fit(iyrtitl_corpus) |> 
+  pluck("fit", "fit", "fit") |>
+  ranger::importance() |> 
+  enframe() |> 
+  mutate(name = fct_reorder(name, value)) |> 
+  ggplot(aes(name, value)) + 
+  geom_col() + 
+  coord_flip() +
+  theme_minimal() +
+  labs(x = NULL, y = "Importance")
+
+clean_corpus |>
+  ggplot(aes(x = valence, y = liveness, colour = artist_name, size = speechiness)) +
+  geom_point(alpha = 0.8) +
+  scale_color_viridis_d() +
+  labs(
+    x = "Valence",
+    y = "Livenss",
+    size = "Speechiness",
+    colour = "Artist"
+  )
+
+
+#Making a Dendrogram
+
+iyrtitl_juice <-
+  recipe(
+    `Track Name` ~
+      #Danceability +
+      Energy +
+      Loudness +
+      Speechiness +
+      #Liveness +
+      Valence,
+    data = iyrtitl_corpus
+  ) |>
+  step_center(all_predictors()) |>
+  step_scale(all_predictors()) |> 
+  # step_range(all_predictors()) |> 
+  prep(iyrtitl_corpus |> mutate(`Track Name` = str_trunc(`Track Name`, 36))) |>
+  juice() |>
+  column_to_rownames("Track Name")
+
+
+iyrtitl_dist <- dist(iyrtitl_juice, method = "euclidean")
+
+iyrtitl_dist |> 
+  hclust(method = "average") |> # Try single, average, and complete.
+  dendro_data() |>
+  ggdendrogram()
+
+iyrtitl_corpus <- filter(clean_corpus, album_name == "If You're Reading This It's Too Late")

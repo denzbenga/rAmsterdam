@@ -1,0 +1,41 @@
+---
+title: "track_levels"
+theme: pulse
+format: html
+editor: visual
+
+ 
+---
+
+::: {.hero}
+# My Project
+
+This is where I will be putting my track level analysis.
+:::
+
+::: {.accordion}
+## Click to expand
+
+Hidden content here
+:::
+
+
+
+::: {.grid}
+::: {.g-col-4}
+### 📊 Analysis
+Here is analysis 1. 
+:::
+
+
+
+::: {.g-col-4}
+### 📈 Results
+Analysis 2
+:::
+
+::: {.g-col-4}
+### 🧪 Methods
+Analysis 3
+:::
+:::

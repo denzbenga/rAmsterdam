@@ -1,0 +1,99 @@
+[
+  {
+    "objectID": "chromas.html",
+    "href": "chromas.html",
+    "title": "chromas",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "chromas.html#quarto",
+    "href": "chromas.html#quarto",
+    "title": "chromas",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "chromas.html#running-code",
+    "href": "chromas.html#running-code",
+    "title": "chromas",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "track_levels.html",
+    "href": "track_levels.html",
+    "title": "track_levels",
+    "section": "",
+    "text": "This is where I will be putting my track level analysis.",
+    "crumbs": [
+      "Analysis",
+      "track_levels"
+    ]
+  },
+  {
+    "objectID": "track_levels.html#quarto",
+    "href": "track_levels.html#quarto",
+    "title": "track_levels",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "track_levels.html#running-code",
+    "href": "track_levels.html#running-code",
+    "title": "track_levels",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "track_levels.html#click-to-expand",
+    "href": "track_levels.html#click-to-expand",
+    "title": "track_levels",
+    "section": "Click to expand",
+    "text": "Click to expand\nHidden content here",
+    "crumbs": [
+      "Analysis",
+      "track_levels"
+    ]
+  },
+  {
+    "objectID": "track_levels.html#results",
+    "href": "track_levels.html#results",
+    "title": "track_levels",
+    "section": "",
+    "text": "(figure)\n\n\n\n(data table)\n\n\n\n(text explanation)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Comp Mus Portfolio",
+    "section": "",
+    "text": "Welcome yada yadda ayyy\n\n\nSecond row ayyy",
+    "crumbs": [
+      "Home",
+      "Comp Mus Portfolio"
+    ]
+  },
+  {
+    "objectID": "index.html#column",
+    "href": "index.html#column",
+    "title": "Comp Mus Portfolio",
+    "section": "",
+    "text": "Welcome yada yadda ayyy\n\n\nSecond row ayyy",
+    "crumbs": [
+      "Home",
+      "Comp Mus Portfolio"
+    ]
+  },
+  {
+    "objectID": "index.html#column-width60",
+    "href": "index.html#column-width60",
+    "title": "Comp Mus Portfolio",
+    "section": "Column {width=60%}",
+    "text": "Column {width=60%}",
+    "crumbs": [
+      "Home",
+      "Comp Mus Portfolio"
+    ]
+  }
+]

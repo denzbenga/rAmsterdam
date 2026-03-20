@@ -1,0 +1,14 @@
+project:
+  type: website
+
+website:
+  title: Daniel Collins' Corpus
+  sidebar:
+    contents:
+      - section: "Home"
+        contents:
+          - index.qmd
+      - section: "Analysis"
+        contents:
+          - track_levels.qmd
+          - chromnas.qmd
