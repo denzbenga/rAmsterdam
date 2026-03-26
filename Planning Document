@@ -18,18 +18,18 @@ DANIEL: This will be my first page. Here's what I want to talk about:
         OF YEEZUS THAN BOUND 2 (IN MY OPINION), BUT CAN I CORROBORATE THAT CLAIM
         USING THE DATA?
 
-CANVAS: Track-level features: What insights into your tracks can be drawn from track-level 
+###CANVAS: Track-level features: What insights into your tracks can be drawn from track-level 
 features of the class corpus (valence, genre, etc.)?
 
-DANIEL: This will come down to what I analyze. I am hoping to see clear trends
+###DANIEL: This will come down to what I analyze. I am hoping to see clear trends
 from album to album in, definitely in topics of Valence, Energy, Danceability,
 Instrumentalness, and maybe even Key. I cannot draw conclusions yet.
 
 
-CANVAS: Chroma features [pitch]: What insights into your tracks can be drawn from chroma 
+###CANVAS: Chroma features [pitch]: What insights into your tracks can be drawn from chroma 
 features?
 
-DANIEL: I am hoping to find interesting information about how varied the harmonic 
+###DANIEL: I am hoping to find interesting information about how varied the harmonic 
 information tends to be across their albums. For example, 808s and heartbreak has 
 notoriously simple instrumentals, with long drones and not much variation in harmonic
 center. I am hoping that some other parts of their music may reflect a change or
@@ -38,10 +38,10 @@ harmonic shifts like in On Sight, or for Graduation to be quite rich with full c
 compared to a song such as The Motto.
 
 
-CANVAS: Loudness [volume]: What insights into your tracks can be drawn from loudness or 
+###CANVAS: Loudness [volume]: What insights into your tracks can be drawn from loudness or 
 power, either at the track level or the section level?
 
-DANIEL: I think there would be interesting shifts WITHIN albums for both artists,
+###DANIEL: I think there would be interesting shifts WITHIN albums for both artists,
 particularly Drake. I'd be very interested to see also a comparison of loudness
 (as a measurement of energy) from What a Time to be Alive and IYRTITL to Take Care.
 I would also be curious about 808s compared MBDTF and Yeezus, also compared to Ye's
@@ -50,10 +50,10 @@ Within sections, I'd be curious to see if either artists has larger shifts withi
 songs at any point, like does Drake have shifts from high energy rap to somber singing
 more than Kanye has loudness variation?
 
-CANVAS: Timbre features [timbre]: What insights into your tracks can be drawn from 
+###CANVAS: Timbre features [timbre]: What insights into your tracks can be drawn from 
 timbre features?
 
-DANIEL: I think I will have to stick to self-similarity matrices for this kinda thing.
+###DANIEL: I think I will have to stick to self-similarity matrices for this kinda thing.
 They both have quite a bit of difference within songs in regards to beat switches.
 However, I am honestly not certain there will be much to show. For example, much of 
 Drake's 2010s music is quite dark in character. How will that show up in the MFCCs?
@@ -61,20 +61,20 @@ Will it pay a lot of attention to high frequency information where 40's synthesi
 often do not take up much space?
 
 
-CANVAS: Temporal features [duration]: What is notable, effective, or ineffective about 
+###CANVAS: Temporal features [duration]: What is notable, effective, or ineffective about 
 structural segments, metre, rhythm, or beats in your tracks?
 
-DANIEL: I am curious to see how well it handles much of the moodier drake tracks, 
+###DANIEL: I am curious to see how well it handles much of the moodier drake tracks, 
 such as Wednesday Night Interlude or Marvin's Room. Metre should generally be pretty 
 simple. I honestly doubt that temporal features will find much of anything. I
 will need to check out the difference between spectral and novelty tempograms.
 
 
-CANVAS: Clustering: Which features generate potentially meaningful clusters? 
+#CANVAS: Clustering: Which features generate potentially meaningful clusters? 
 OR Classification/regression [advanced alternative]: 
 How effective are the features in our class corpus for classification or regression?
 
-DANIEL: I think, like I said above, energy, valence, key, and maybe danceability 
+#DANIEL: I think, like I said above, energy, valence, key, and maybe danceability 
 should hold the key to the best clustering.
 
 CANVAS: Contribution: What have you learned from this set of analyses? 
@@ -92,3 +92,111 @@ I think 808s may actually be an outlier as a not speechy, very melodic kanye alb
   I do NOT think you will see a speechiness trend for him.
   I think speechiness will overall be higher for Ye than Drake
   
+
+
+genre_recipe_small <- recipe(
+  genre ~ Danceability + Energy + Loudness + Instrumentalness +
+    Valence + Tempo,
+  data = train_data
+) %>%
+  step_zv(all_predictors()) %>%
+  step_normalize(all_predictors())
+
+rf_workflow_small <- workflow() %>%
+  add_recipe(genre_recipe_small) %>%
+  add_model(rf_model)
+
+rf_fit_small <- fit(rf_workflow_small, data = train_data)
+
+rf_preds_small <- predict(rf_fit_small, test_data) %>%
+  bind_cols(test_data %>% select(genre))
+
+conf_mat_small <- conf_mat(rf_preds_small, truth = genre, estimate = .pred_class)
+acc_small <- accuracy(rf_preds_small, truth = genre, estimate = .pred_class)
+
+conf_mat_small
+
+          Truth
+Prediction Italo Techno
+    Italo      2      0
+    Techno     0      2
+
+acc_small
+
+# A tibble: 1 × 3
+  .metric  .estimator .estimate
+  <chr>    <chr>          <dbl>
+1 accuracy binary             1
+
+Confusion matrix code 1 (second half, actually.)
+
+
+tracks %>% count(genre)
+
+# A tibble: 2 × 2
+  genre      n
+  <chr>  <int>
+1 Italo      7
+2 Techno     7
+
+tracks <- bind_rows(italo, techno) %>%
+  mutate(genre = factor(genre)) %>%
+  drop_na(
+    Danceability, Energy, Loudness, Speechiness, Acousticness,
+    Instrumentalness, Liveness, Valence, Tempo, `Duration (ms)`
+  )
+
+split <- initial_split(tracks, prop = 0.75, strata = genre)
+train_data <- training(split)
+test_data <- testing(split)
+
+genre_recipe <- recipe(
+  genre ~ Danceability + Energy + Loudness + Speechiness +
+    Acousticness + Instrumentalness + Liveness + Valence +
+    Tempo + `Duration (ms)`,
+  data = train_data
+) %>%
+  step_zv(all_predictors()) %>%
+  step_normalize(all_predictors())
+
+rf_model <- rand_forest(
+  trees = 500,
+  mtry = 3,
+  min_n = 2
+) %>%
+  set_engine("ranger", importance = "impurity") %>%
+  set_mode("classification")
+
+rf_workflow <- workflow() %>%
+  add_recipe(genre_recipe) %>%
+  add_model(rf_model)
+
+rf_fit <- fit(rf_workflow, data = train_data)
+
+rf_preds <- predict(rf_fit, test_data) %>%
+  bind_cols(test_data %>% select(genre))
+
+conf_mat_full <- conf_mat(rf_preds, truth = genre, estimate = .pred_class)
+acc_full <- accuracy(rf_preds, truth = genre, estimate = .pred_class)
+
+conf_mat_full
+
+          Truth
+Prediction Italo Techno
+    Italo      2      0
+    Techno     0      2
+
+acc_full
+
+# A tibble: 1 × 3
+  .metric  .estimator .estimate
+  <chr>    <chr>          <dbl>
+1 accuracy binary             1
+
+
+
+
+
+https://mdekker54.github.io/Computational-Musicology/#corpus
+
+Check this guy's corpus out for inspiration on how it could look

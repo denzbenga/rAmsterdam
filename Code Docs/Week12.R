@@ -2,8 +2,14 @@ library(tidyverse)
 library(tidymodels)
 library(ggdendro)
 library(heatmaply)
-
+library(dendextend)
 library(compmus)
+library(ggraph)
+library(igraph)
+library(tidyverse)
+library(ranger)
+library(kknn)
+theme_set(theme_void())
 
 #adding compmus functions
 get_conf_mat <- function(fit) {
@@ -67,63 +73,16 @@ heatmaply(
   dist_method = "euclidean"
 )
 
-pop <- read_csv("~/downloads/indie-pop.csv", col_types = "ccccDnnlcTccnnnnnnnnnnnn")
-party <- read_csv("~/downloads/indie-party.csv", col_types = "ccccDnnlcTccnnnnnnnnnnnn")
-workout <- read_csv("~/downloads/indie-running.csv", col_types = "ccccDnnlcTccnnnnnnnnnnnn")
-
-indie <-
-  bind_rows(
-    pop |> mutate(Playlist = "Indie Pop") |> slice_head(n = 20),
-    party |> mutate(Playlist = "Indie Party") |> slice_head(n = 20),
-    workout |> mutate(Playlist = "Indie Running") |> slice_head(n = 20)
-  )
 
 
-indie_recipe <-
-  recipe(
-    Playlist ~
-      Danceability +
-      Energy +
-      Loudness +
-      Speechiness +
-      Acousticness +
-      Instrumentalness +
-      Liveness +
-      Valence +
-      Tempo +
-      `Duration (ms)`,
-    data = indie                    # Use the same name as the previous block.
-  ) |>
-  step_center(all_predictors()) |>
-  step_scale(all_predictors())      # Converts to z-scores.
-# step_range(all_predictors())    # Sets range to [0, 1].
 
-indie_cv <- indie |> vfold_cv(5)
-
-
-install.packages("kknn")
-library(kknn)
 
 knn_model <-
   nearest_neighbor(neighbors = 1) |>
   set_mode("classification") |> 
   set_engine("kknn")
-indie_knn <- 
-  workflow() |> 
-  add_recipe(indie_recipe) |> 
-  add_model(knn_model) |> 
-  fit_resamples(indie_cv, control = control_resamples(save_pred = TRUE))
 
-indie_knn |> get_conf_mat()
-
-indie_knn |> get_conf_mat() |> autoplot(type = "mosaic")
-
-indie_knn |> get_conf_mat() |> autoplot(type = "heatmap")
-
-indie_knn |> get_pr()
-
-install.packages("ranger")
-library(ranger)
+iyrtitl_cv <- iyrtitl_corpus |> vfold_cv(5)
 
 forest_model <-
   rand_forest() |>
@@ -131,39 +90,13 @@ forest_model <-
   set_engine("ranger", importance = "impurity")
 indie_forest <- 
   workflow() |> 
-  add_recipe(indie_recipe) |> 
+  add_recipe(iyrtitl_recipe) |> 
   add_model(forest_model) |> 
   fit_resamples(
     indie_cv, 
     control = control_resamples(save_pred = TRUE)
   )
 
-indie_forest |> get_pr()
-
-workflow() |> 
-  add_recipe(indie_recipe) |> 
-  add_model(forest_model) |> 
-  fit(indie) |> 
-  pluck("fit", "fit", "fit") |>
-  ranger::importance() |> 
-  enframe() |> 
-  mutate(name = fct_reorder(name, value)) |> 
-  ggplot(aes(name, value)) + 
-  geom_col() + 
-  coord_flip() +
-  theme_minimal() +
-  labs(x = NULL, y = "Importance")
-
-indie |>
-  ggplot(aes(x = Acousticness, y = Liveness, colour = Playlist, size = Energy)) +
-  geom_point(alpha = 0.8) +
-  scale_color_viridis_d() +
-  labs(
-    x = "Acousticness",
-    y = "Liveness",
-    size = "Energy",
-    colour = "Playlist"
-  )
 
 clean_corpus <- album_means[1:228, ]
 
@@ -227,7 +160,7 @@ workflow() |>
   geom_col() + 
   coord_flip() +
   theme_minimal() +
-  labs(x = NULL, y = "Importance")
+  labs(x = "Song", y = "Importance", title = "Feature Importance for IYRTITL")
 
 clean_corpus |>
   ggplot(aes(x = valence, y = liveness, colour = artist_name, size = speechiness)) +
@@ -246,17 +179,17 @@ clean_corpus |>
 iyrtitl_juice <-
   recipe(
     `Track Name` ~
-      #Danceability +
-      Energy +
-      Loudness +
+      Danceability +
+      #Energy +
+      #Loudness +
       Speechiness +
       #Liveness +
       Valence,
     data = iyrtitl_corpus
   ) |>
-  step_center(all_predictors()) |>
-  step_scale(all_predictors()) |> 
-  # step_range(all_predictors()) |> 
+  #step_center(all_predictors()) |>
+  #step_scale(all_predictors()) |> 
+  step_range(all_predictors()) |> 
   prep(iyrtitl_corpus |> mutate(`Track Name` = str_trunc(`Track Name`, 36))) |>
   juice() |>
   column_to_rownames("Track Name")
@@ -269,4 +202,54 @@ iyrtitl_dist |>
   dendro_data() |>
   ggdendrogram()
 
+iyrtitl_dist |>
+  hclust(method = "single") |>
+  dendro_data() |>
+  ggdendrogram(rotate = TRUE) +
+  theme_minimal() +
+  labs(
+    title = "Dendrogram of IYRTITL - Energy, Loudness, and Valence",
+    x = "Song",
+    y = "Distance"
+  )
+
+#attempt at website version
+iyrtitl_dist |>
+  hclust(method = "average") |>
+  #dendro_data() |>
+  
+iyrtitl_clust <- iyrtitl_dist |>
+  hclust(method = "average")
+  
+ggraph(iyrtitl_clust, layout = 'dendrogram', circular = TRUE) + 
+  geom_edge_diagonal() +
+  geom_node_text(aes( label=label, filter=leaf) , angle=90 , hjust=1, nudge_y = -0.04) +
+  geom_node_point(aes(filter=leaf) , alpha=0.6) +
+  ylim(-.5, NA)
+  #theme_minimal() +
+  #labs(
+   # title = "Dendrogram of Songs",
+   # x = "Song",
+   # y = "Distance"
+ # )
+
+
+
+
+
 iyrtitl_corpus <- filter(clean_corpus, album_name == "If You're Reading This It's Too Late")
+
+iyrtitl_violin <- iyrtitl_corpus %>%
+  select(Acousticness, Liveness) %>%
+  pivot_longer(cols = everything(),
+               names_to = "Feature",
+               values_to = "Value")
+
+ggplot(iyrtitl_violin, aes(x = Feature, y = Value, fill = Feature)) +
+  geom_violin(trim = FALSE) +
+  labs(title = "Distribution of Acousticness vs Liveness",
+       x = "Feature",
+       y = "Value") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
