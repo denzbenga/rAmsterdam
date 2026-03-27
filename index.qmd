@@ -1,7 +1,7 @@
 ---
 title: "Comp Mus Portfolio"
 author: "Daniel Thomas Collins"
-theme: [pulse, custom.scss]
+theme: pulse
 format: dashboard
     
 editor: visual
@@ -123,30 +123,70 @@ drake_dates <- drake_corpus %>%
 
 ```
 
-# Week12 {scrolling="true"}
+# Introduction
 
 ## Row
 
-::: {.card title="Week 12" fill="true"}
-For week 12, I did a dendrogram of "If You're Reading This It's Too Late" by Drake, and a random forest for my entire corpus of Drake and Kanye's music from 2004-2016.
+::: {.card title="Introduction" fill="false"}
+My corpus will consist of two familiar faces for any fan of modern Hip Hop: Kanye West and Drake.
+
+In this corpus, I am interested in exploring their careers from their first albums up to 2016. The way I see it, these two artists were at their most influential during this time period. Understanding how they sounded from the beginning, and how they changed over time, may provide an insight into how later generations of rappers found their inspiration. Both of these artists have dramatically shifted their sounds over the years, and it would be wrong to think that any artists they influenced did not have specific albums of theirs that mattered most. So, uncovering how their albums differed from one another can help highlight what made each of their eras so special.
 :::
 
 ## Row
 
-::: {.card title="Dendrogram of IYRTITL by Drake" fill="false"}
-![](images/IYRTITL%20Dendro.png)
+::: {.card title="Kanye West" fill="false"}
+![](images/kanye_photo.jpg){width="450"}
 
-I started with a dendrogram of only one album because I was well aware that fitting my whole corpus into one dendrogram is nigh impossible. I sorted this album through only track-level features of Valence, Energy, Loudness, and Speechiness, as they seemed most prominent when I ran a feature importance plot, along with my personal understanding of the album regarding those values as more important than something such as song duration.
+Kanye West had a massive influence on the next generation of artists such as Travis Scott, Future, Tyler The Creator, and Young Thug. He pulled hip hop away from the gangster rap that dominated it, embodied by artists like 50 cent, DMX, and Dr. Dre.
 
-Some of the connections made by the dendrogram match up with what I personally feel about the album, and some others do not. For example, "Know Yourself" and "You & The 6" appear decently similar on this chart, and I can see why exportify may think so, as the songs both have some long instrumental sections and are relatively downtempo and lower energy than some of the songs. However, the valence feeling, to me personally, is drastically different in these two songs. I believe these songs look closely connected to the computer analysis as lyrics are not really taken into account for track-level features, and the lyrics are what account for a seriously significant difference in tone, as "You And The 6" is particularly sentimental and positive towards Drake's mother "while Know Yourself" is a much more bragadocious rap track. I personally feel this dendrogram would need some extra fine tuning, perhaps by adding or removing a feature in the algorithm, to achieve a better result.
+His albums during this time of 2004-2016 consist of:
+
+The College Dropout (2004)
+
+Late Registration (2005)
+
+Graduation (2007)
+
+808s & Heartbreak (2008)
+
+My Beautiful Dark Twisted Fantasy (2010)
+
+Watch The Throne (With Jay Z) (2011)
+
+Yeezus (2013)
+
+Ye (2016)
+
+His first three albums all embodied the classic backpack rap Kanye era, while 808s was a drastic departure from all sounds prior and after. MBDTF is often referred to as his 'magnum opus', being his most maximalist music in terms of production quality and amount of unique features and samples per song. Yeezus was a fusion of industrial techno and hip hop, and Ye marks the beginning of his much more religious years, invoking lots of Christian imagery and heavily using gospel samples or gospel themes (although there are still PLENTY of non-Christian themes in this album).
+
+What has always separated Kanye from other artists has been his own control over the actual production of his tracks and his knack for splitting away from traditional rap structures and greatly borrowing from other music scenes. This was in fact what made him notable in the first place, as his heavy use of samples from soul music was unlike anything seen in the gangster rap scene he was surrounded by when he first emerged onto the scene. This knack for experimentation and instrumental-focused rap music has always made him stand out musically in hip hop.
 :::
 
-## Row
+::: {.card title="Drake" fill="false"}
+![](images/drake_photo.jpg)
 
-::: {.card title="Clusters of Drake and Kanye Songs" fill="false"}
-![](images/Classification%20Clustering.png)
+Drake broke out onto the scene 5 years after Kanye, but his rise was just as dominant and unusual as Kanye's. He merged the backpack rap of Kanye's early albums and the introspection of Kanye's "808s & Heartbreak" with pop elements and a incredibly moody tone. When looking at who Kanye influenced, realistically, the first answer should always be Drake. However, as they competed and grew, they both changed dramatically. He was one of the first to be a rapper and a singer simultaneously, and we're not talking Kanye West singing through autotune on "808s". He could play both sides of the exchange, making "every song sound like Drake featuring Drake" (from 5am in Calabasas).
 
-This cluster chart is of all of the two artists' songs in the corpus. I chose liveness as I personally thought there would be heavy clustering of Kanye's earlier music as more "live" given its heavy use of soul samples. There appears to be more of his music along the middle to high edges of liveness than Drake, although not too much. A key issue here is the inability to see what songs or albums are responsible for each dot. I attempted to set this graph to function with album names, but I had no success unfortunately. What I may have to do for my final corpus is make two separate versions of this graph, one for each artist, with albums separated by colours. I do not think it would be possible to put them both on the same graph, as that would be far too many albums for one graph, rendering it largely unreadable.
+His albums during this time of 2009-2016 consist of:
+
+So Far Gone (2009)
+
+Thank Me Later (2010)
+
+Take Care (2011)
+
+Nothing Was The Same (2013)
+
+If You're Reading This It's Too Late (2015)
+
+What A Time To Be Alive (with Future) (2015)
+
+Views (2016)
+
+Drake's first two albums were earnest, sad, but also had a heavy blend of pop and R&B. These albums feel less coherent than later projects, featuring a number of producers and feeling less mature than his later work. In truth, the albums were quite rushed, leading him to his next project, "Take Care", which, as the name states, he spent significantly more time on. This album cemented his moody, underwater sound, owing much credit to his long term partnership with his producer Noah "40" Shebib which was truly established during "Take Care". "Nothing Was The Same" marks Drake's foray into harder hitting tracks, with his rap music getting increasingly braggadocious and militant, while his R&B tracks shifted from sad and moody to, for lack of a better word, sexy. "If You're Reading This It's Too Late" and "What A Time To Be Alive" continue his dark mood and really amp up the aggression in his music, with the former literally being a surprise diss track to his entire label in order to escape from his contract. "Views" sees Drake come to a more chilled out styling, less downright sad and more laid back, although not necessarily happy. It also sees Drake bring in a myriad of new collaborations that expand his genre capabilities, particularly with the large amount of Caribbean influence brought in.
+
+While Drake's production was never as genre-bending as Kanye's his blend of styles, from rap to R&B to pop, has made him a relatively unpredictable talent. However, his focus on melodic rap and somber soundscapes has certainly influenced many, such as The Weeknd, Tory Lanez, Post Malone, and PARTYNEXTDOOR.
 :::
 
 # Track Features {scrolling="true"}
@@ -154,9 +194,9 @@ This cluster chart is of all of the two artists' songs in the corpus. I chose li
 ## Row
 
 ::: {.card title="Track Features!" fill="false"}
-This is where I am putting all of my track level features from exportify.
-
 Given that I am studying change over time, the track-level features from spotify are critically important. In the charts below, I have Drake and Kanye West plotted against each other: Kanye is in orange and Drake is in blue.
+
+Make sure to scroll down! There is lots to see here.
 :::
 
 ## Row {.tabset}
@@ -299,7 +339,6 @@ Danceability is a weird one, because for both artists, it has a mostly inverse r
 :::
 
 ::: {.card title="Popularity" fill="false"}
-
 ```{r}
 
 
@@ -435,18 +474,21 @@ I hope this was as interesting a read as it was for me to think about. It unfort
 
 # Dendrograms {scrolling="true"}
 
-## Header Row
+## Row
 
-Diving Into Drake's "If You're Reading This It's Too Late"
+::: {.card title="Diving Into Drake's 'If You're Reading This It's Too Late'" fill="false"}
 
 Drake's album "If You're Reading This It's Too Late" was released in 2015 with no buildup, no advertising, largely as a surprise to both his fans and his label, the latter of which he took numerous direct shots at in this album. This is a critical album in his discography, pulling him away from introspective Hip Hop and pop hits towards dark, moody trap.
 
 Below, I have put together a chart that illustrates what my random forest trained on this album believes are the most important spotify features for clustering.
 
-## Images {.tabset}
+:::
+
+## Row {.tabset}
+
+::: {.card title="Feature Importance" fill="false"}
 
 ```{r}
-#| title: Feature Importance
 
 workflow() |> 
   add_recipe(iyrtitl_recipe) |> 
@@ -463,6 +505,8 @@ workflow() |>
   labs(x = "Song", y = "Importance", title = "Feature Importance for IYRTITL")
 ```
 
+:::
+
 ```{r, include=FALSE}
 iyrtitl_violin <- iyrtitl_corpus %>%
   select(Acousticness, Liveness) %>%
@@ -471,8 +515,10 @@ iyrtitl_violin <- iyrtitl_corpus %>%
                values_to = "Value")
 ```
 
+::: {.card title="Distributions" fill="false"}
+
 ```{r}
-#| title: Distributions
+
 
 ggplot(iyrtitl_violin, aes(x = Feature, y = Value, fill = Feature)) +
   geom_violin(trim = FALSE) +
@@ -483,6 +529,11 @@ ggplot(iyrtitl_violin, aes(x = Feature, y = Value, fill = Feature)) +
   theme(legend.position = "none")
 
 ```
+
+:::
+
+::: {.card title="Cluster #1" fill="false"}
+
 
 ```{r}
 #| title: "Cluster #1"
@@ -521,8 +572,12 @@ iyrtitl_dist_bad |>
 
 ```
 
+:::
+
+::: {.card title="Cluster #2" fill="false"}
+
+
 ```{r}
-#| title: "Cluster #2"
 
 iyrtitl_juice_good <-
   recipe(
@@ -557,7 +612,12 @@ iyrtitl_dist_good |>
   )
 ```
 
-## Key Takeaways
+:::
+
+
+## Row
+
+::: {.card title="Observations" fill="false"}
 
 This chart has most features at a pretty high level, and if one were to look purely at the Spotify feature data, it would make sense; the Distributions tab has a simple plot that illustrate the distribution of values within "Acousticness" and "Energy".
 
@@ -566,6 +626,8 @@ You can clearly see that this album has a lot of variance in "Acousticness" and 
 Cluster #1 and Cluster #2 illustrate the difference between different sets of features. The first shows Acousticness and Liveness, while the latter shows Energy and Speechiness. Energy and Speechiness both rank below Acousticness according to my feature importance graph, and Valence is lower than Liveness. However, these features lead to both a cleaner dendrogram and certainly offer a more reasonable estimation of song similarity than the other two features.
 
 For anyone who knows the album well, putting *Jungle* and *No Tellin'* or *6pm in New York* and *Company* anywhere near each other really makes no sense, and so, fine tuning Spotify's features to suit a clustering algorithm, at least for this album, clearly requires some personal knowledge of the dataset at hand.
+
+:::
 
 # Chromagrams {scrolling="true"}
 
@@ -593,14 +655,14 @@ say_you_will_pitches |>
     )
   ) +
   geom_tile() +
-  labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+  labs(x = "Time (s)", y = NULL, fill = "Magnitude", title = "Say You Will by Kanye West") +
   theme_minimal() +
   scale_fill_viridis_c()
 
 
 ```
 
-*Say You Will* by Kanye West is highly minimalist compared to much of his other music. It drones on a C minor chord for much of the track, with the same drums playing throughout without variation. The graph shows quite clearly that we are in the key of C, and although both E and Eb are present in the chromagram, the song is certainly in C minor. The presence of E and the particularly heavy presence of G are both likely thanks to the overtones coming from the instrumental, which is mostly a mix of a choir synthesizer, string synthesizer, and piano.
+"Say You Will" by Kanye West (808s & Heartbreak, 2008) is highly minimalist compared to much of his other music. It drones on a C minor chord for much of the track, with the same drums playing throughout without variation. The graph shows quite clearly that we are in the key of C, and although both E and Eb are present in the chromagram, the song is certainly in C minor. The presence of E and the particularly heavy presence of G are both likely thanks to the overtones coming from the instrumental, which is mostly a mix of a choir synthesizer, string synthesizer, and piano.
 
 Looking at this chromagram, it doesn't seem super clear what is going on despite how minimalist the track's production is. However, if you look at the section between about 270 and 295 seconds, the messiness of the chromagram makes sense.
 
@@ -622,7 +684,7 @@ say_you_will_pitches_zoomed |>
     )
   ) +
   geom_tile() +
-  labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+  labs(x = "Time (s)", y = NULL, fill = "Magnitude", title = "Say You Will, Zoomed In") +
   theme_minimal() +
   scale_fill_viridis_c()
 
@@ -649,14 +711,14 @@ power |>
     )
   ) +
   geom_tile() +
-  labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+  labs(x = "Time (s)", y = NULL, fill = "Magnitude", title = "Power by Kanye West") +
   theme_minimal() +
   scale_fill_viridis_c()
 
 
 ```
 
-This Track is super smudged all over the chroma gram, but you can get a couple insights:
+"Power" by Kanye West (My Beautiful Dark Twisted Fantasy, 2010) is super smudged all over the chroma gram, but you can get a couple insights:
 
 Generally not super harmonic - drums play consistently and samples play intermittently to build a rich texture, but chords and notes are never held. Consistent energy in Bb, G, and C reflects the "OhhUh" and "Ayyyyay" samples.
 
@@ -678,13 +740,13 @@ energy |>
     )
   ) +
   geom_tile() +
-  labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+  labs(x = "Time (s)", y = NULL, fill = "Magnitude", title = "Energy by Drake") +
   theme_minimal() +
   scale_fill_viridis_c()
 
 ```
 
-Energy is interesting, because it has quite little pitch information. The very beginning, on the left, is all over the place, as it starts with a vocal sample of a different person before cutting to the actual beat of the song.
+"Energy" by Drake (If You're Reading This It's Too Late, 2015) is interesting, because it has quite little pitch information. The very beginning, on the left, is all over the place, as it starts with a vocal sample of a different person before cutting to the actual beat of the song.
 
 This song is all based off a single melodic motif, but through filtering, changing the balance of instruments, and huge energy fluctuations in the drums, it still experiences large mood swings. The only notable moment where the consistent Bb gets broken up a is around 80 seconds, which corresponds to Drake holding onto specific words for extended periods of time, altering the balance of pitches.
 
@@ -709,13 +771,13 @@ one_dance |>
     )
   ) +
   geom_tile() +
-  labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+  labs(x = "Time (s)", y = NULL, fill = "Magnitude", title = "One Dance by Drake") +
   theme_minimal() +
   scale_fill_viridis_c()
 
 ```
 
-Unlike many other Drake songs in this corpus, this song has consistent drums that are not low-passed at all. There is consistent snare and hit hat information, and you can clearly see all the smearing their frequency content does to this chromagram.
+Unlike many other Drake songs in this corpus, "One Dance" by Drake (Views, 2016) has consistent drums that are not low-passed at all. There is consistent snare and hit hat information, and you can clearly see all the smearing their frequency content does to this chromagram.
 
 The main prominent bands of C#, Eb, F, Bb, and Ab are related to the piano thats playing throughout the song. You can hear this around 110 seconds, where everything drops out aside from the main piano riff, and a female vocal comes in for about 20 seconds. While this section is going on, all the smearing goes away on the chromagram and just those main pitches shine through, highlighting their correlation to the piano.
 :::
@@ -733,15 +795,15 @@ These songs below all feature MFCC charts and self-similarity matrices. While ti
 ::: {.card title="The Resistance" fill="false"}
 ![](the_resistance_mfcc_plot.png)
 
-Looking at "The Resistance" by Drake, you can see that repeating sections in the SSM below correspond to some notable changes in MFCC_02 and MFCC_03, such as around 75 seconds and 150 seconds. In the song, this corresponds to when Drake switches from rapping a verse to singing the pre-chorus and chorus. This song is obviously pretty simple, based on the SSM. However, the verse sections (most of the green) seem to look dissimilar to each other in this song, even though they really do not differ a ton as you listen. I am not sure what is making the algorithm see it differently.
+Looking at "The Resistance" by Drake (So Far Gone, 2009), you can see that repeating sections in the SSM below correspond to some notable changes in MFCC_02 and MFCC_03, such as around 75 seconds and 150 seconds. In the song, this corresponds to when Drake switches from rapping a verse to singing the pre-chorus and chorus. This song is obviously pretty simple, based on the SSM. However, the verse sections (most of the green) seem to look dissimilar to each other in this song, even though they really do not differ a ton as you listen. I am not sure what is making the algorithm see it differently.
 
-![](the_resistance_ssm.png){width="654"}
+![](the_resistance_ssm.png)
 :::
 
 ::: {.card title="Cameras/Good Ones Go" fill="false"}
 ![](cameras_mfcc_plot.png)
 
-The MFCC chart and SSM for "Cameras/Good Ones Go Interlude" by Drake are almost exactly what I expected. "Take Care", the album this song is from, was a departure from Drake's first two mixtapes, which were quite rushed (although very popular), were followed by "Take Care", being the album he took a lot more care to create. This song is effectively two in one, with a long transition period, represented by the big blue square in the middle. Meanwhile, the lattice structure in the bottom left represents a number of verses that get intersected by small instrumental sections.
+The MFCC chart and SSM for "Cameras/Good Ones Go Interlude" by Drake (Take Care, 2011) are almost exactly what I expected. "Take Care", the album this song is from, was a departure from Drake's first two mixtapes, which were quite rushed (although very popular), were followed by "Take Care", being the album he took a lot more care to create. This song is effectively two in one, with a long transition period, represented by the big blue square in the middle. Meanwhile, the lattice structure in the bottom left represents a number of verses that get intersected by small instrumental sections.
 
 In the MFCC chart, MFCC_03 gets notably dark during the transition period. This section is where Drake's voice leaves the track for over a minute, which would make sense given that much of the MFCCs have to do with vocals, except that the instrumentals for this song are heavily built around samples of people singing. This leaves me a little uncertain as to why MFCC 3 so prominently drops out in this section.
 
@@ -753,7 +815,7 @@ What seems to correlate the most to changes in the SSM is not actually whether D
 ::: {.card title="The New Workout Plan" fill="false"}
 ![](workout_plan_mfcc_plot.png)
 
-"The New Workout Plan" is an incredibly busy, weird track by Kanye, although its certainly not experimental or hard to follow. Honestly, the MFCC chart captures nothing of interest, unfortunately, and the SSM isn't much better. The fact that the SSM shows almost no change at 210 seconds is shocking: the entire beat changes, the tempo feel is completely new, the main voice becomes a Daft Punk-sounding robot, and the drums mostly consist of a simple kick and clapping compared to the ridiculously fast kick and hi hat of the first half.
+"The New Workout Plan" (The College Dropout, 2004) is an incredibly busy, weird track by Kanye, although its certainly not experimental or hard to follow. Honestly, the MFCC chart captures nothing of interest, unfortunately, and the SSM isn't much better. The fact that the SSM shows almost no change at 210 seconds is shocking: the entire beat changes, the tempo feel is completely new, the main voice becomes a Daft Punk-sounding robot, and the drums mostly consist of a simple kick and clapping compared to the ridiculously fast kick and hi hat of the first half.
 
 Something that is painfully missed in a MFCC based analysis of any song is the lack of consideration for stereo fields. At 50 seconds, when the chorus comes in, the main change is not to the song's individual parts, but the stereo image. The song becomes drastically wider, especially Kanye's voice, as he is particularly de-correlated from the center. On the SSM, though? Nothing. The song honestly looks mostly through-composed, with no repeating sections or even obvious divisions between sections, despite how different the major parts really are.
 
@@ -763,7 +825,7 @@ Something that is painfully missed in a MFCC based analysis of any song is the l
 ::: {.card title="Otis" fill="false"}
 ![](otis_mfcc_plot.png)
 
-"Otis" by Kanye West (and Jay Z) is an interesting one, and relatively succesfull. While the MFCC chart doesn't show much, the SSM captures some important things. Considering this song is almost 100% built on a single sample, which plays out in full during the intro and then is chopped up for the rest of the song, the SSM depicts the intro quite well.
+"Otis" by Kanye West (Watch The Throne, 2011) is an interesting one, and relatively succesfull. While the MFCC chart doesn't show much, the SSM captures some important things. Considering this song is almost 100% built on a single sample, which plays out in full during the intro and then is chopped up for the rest of the song, the SSM depicts the intro quite well.
 
 Almost all of the bright yellow lines perfectly correlate to the end of each phrase of the beat, where the sample speeds up, the drums intensify, and then eventually reset to the beginning of the phrase, which is much calmer.
 
@@ -777,10 +839,10 @@ The outer yellow ring looks like what you would expect if there was a big silenc
 ## Row
 
 ::: {.card title="My Chromagrams" fill="false"}
-For my tempograms, I used exclusively autocorrelation methods, as they seem to visualize my songs better than fourier tempograms. However, as you will see below, even the autocorrelation tempograms struggled with my songs.
+For my tempograms, I used exclusively autocorrelation methods, as they seem to visualize my songs better than fourier tempograms. However, as you will see below, even the autocorrelation tempograms struggled with my songs. The first card is of Kanye West songs, and the second card is of Drake songs.
 :::
 
-## Kanye West {.tabset}
+## Column {.tabset width=50%}
 
 ::: {.card title="On Sight" fill="false"}
 ```{r}
@@ -798,7 +860,7 @@ on_sight_act |>
 
 ```
 
-"On Sight" by Kanye West is perhaps the weirdest one of all of my tempograms. It seems to catch almost nothing at all for the first two thirds of the song, despite this being by far the most clear part of the song rhythmically. It has clear drums, especially the hi hat, and a snare that always hits on beat 3. Granted, the synth pattern is weird.
+"On Sight" by Kanye West (Yeezus, 2013) is perhaps the weirdest one of all of my tempograms. It seems to catch almost nothing at all for the first two thirds of the song, despite this being by far the most clear part of the song rhythmically. It has clear drums, especially the hi hat, and a snare that always hits on beat 3. Granted, the synth pattern is weird.
 
 The final third of the song is by far the least clear when you listen to it - it goes into an 8/8 time signature, where the pattern is sometimes 3-2-3, but at other times 2-3-3, and it really feels all over the place. The autocorrelation algorithm seemed to pick a number of tempos up... but far too many for it to be anything accurate. The strongest character it had was around 60 bpm, but that DEFINITELY is not the tempo.
 
@@ -821,7 +883,7 @@ i_love_kanye_act |>
 
 ```
 
-"I Love Kanye" by Kanye West is somewhat a failure - don't worry, a success is coming.
+"I Love Kanye" by Kanye West (Ye, 2016) has a pretty failed tempogram - don't worry, a success is coming.
 
 This song is pretty interesting because it is literally just Kanye rapping. If anything, its a poem. But, it is very rhythmically rigid. The tempogram seems to be estimating about 100 bpm, as it shows lines around that area, as well as subharmonics of 50 and 25 bpm being present. This could potentially line up with the tempo he raps at, although it feels more like 120 to me.
 :::
@@ -842,10 +904,10 @@ power_act |>
 
 ```
 
-"Power" by Kanye West is the final Kanye tempogram here. Not much to say - it clearly caught a tempo. Given that it sits right on 150 and all the harmonics seem to be integer divided multiples of 150, (50 is 150/3, the line between them is thus likely to be 75 or 150/2, and continuing downwards) 150 is definitely the predicted tempo - quite fast for a Kanye song.
+"Power" by Kanye West (My Beautiful Dark Twisted Fantasy, 2010) is the final Kanye tempogram here. Not much to say - it clearly caught a tempo. Given that it sits right on 150 and all the harmonics seem to be integer divided multiples of 150, (50 is 150/3, the line between them is thus likely to be 75 or 150/2, and continuing downwards) 150 is definitely the predicted tempo - quite fast for a Kanye song.
 :::
 
-## Drake {.tabset}
+## Column {.tabset width=50%}
 
 ::: {.card title="30 For 30" fill="false"}
 ```{r}
@@ -863,7 +925,7 @@ X30_for_30_act |>
 
 ```
 
-"30 for 30 Freestyle" is a classic introspective Drake outro. Its moody, slow, and the instrumental feels incredibly somber. Key to 40's production style (Drake's main producer) is heavy low pass filtering of everything, especially drums, and I think that's why the tempogram is so lost.
+"30 for 30 Freestyle" (What A Time To Be Alive) is a classic introspective Drake outro. Its moody, slow, and the instrumental feels incredibly somber. Key to 40's production style (Drake's main producer) is heavy low pass filtering of everything, especially drums, and I think that's why the tempogram is so lost.
 
 Clearly, the novelty functions for this song are misplaced, and I assume its because of a lack of frequency information. The drums are constantly playing throughout the song and the tempo is very obvious, but with a lack of high frequency information (and actually a bit unusual for Drake songs, a lack of low end in the drums as well), the model couldn't find anything strong to latch on to.
 :::
@@ -884,7 +946,7 @@ marvins_room_act |>
 
 ```
 
-"Marvin's Room" by Drake is another down-tempo Drake classic, having much of the same drum character as "30 For 30 Freestyle", with heavy filtering done. However, there is a clear band at 200 where the tempogram is appearing to pick up on some kind of information, and I'm not sure what. This section is totally identical to whats happening 60 seconds prior. Its only around 220 seconds that a hi hat briefly enters - perhaps the model is trying to use that hi hat to relate its rhythm to whats happening prior to it?
+"Marvin's Room" by Drake (Take Care, 2011) is another down-tempo Drake classic, having much of the same drum character as "30 For 30 Freestyle", with heavy filtering done. However, there is a clear band at 200 where the tempogram is appearing to pick up on some kind of information, and I'm not sure what. This section is totally identical to whats happening 60 seconds prior. Its only around 220 seconds that a hi hat briefly enters - perhaps the model is trying to use that hi hat to relate its rhythm to whats happening prior to it?
 
 This song is likely extra challenging for the model as all the drums are syncopated, aside from playing on beat 1. While the beat is very obvious for any human listener, there isn't a single obvious quarter or eighth note rhythm at any point in the song.
 :::
@@ -905,7 +967,29 @@ cameras_act |>
 
 ```
 
-"Cameras/Good Ones Go Interlude" by Drake had some obvious success in its first half, finding a tempo, likely thanks to the clear drumming in this section. In the second half, which is a very smooth R&B track, the tempogram didn't have the slightest clue. I think what doesn't help, is that there is a clear triplet delay that plays after a number of the drum sounds during this section, while the drums otherwise have a lot of empty space.
+"Cameras/Good Ones Go Interlude" (Take Care, 2011) by Drake had some obvious success in its first half, finding a tempo, likely thanks to the clear drumming in this section. In the second half, which is a very smooth R&B track, the tempogram didn't have the slightest clue. I think what doesn't help, is that there is a clear triplet delay that plays after a number of the drum sounds during this section, while the drums otherwise have a lot of empty space.
 
 I think one of the biggest challenges these three tracks have had, aside from the heavily filtered drums in some of them, is that none of them have melodic instruments with clear note onsets. They instead have lush synth pads, risers, and compressed vocals filling out the atmosphere, with Drake's voice, and occasionally the drums, holding all of the tempo. I would imagine that the subtleties of the human voice in regards to tempo are a bit too challenging for the novelty functions to pick up on.
+:::
+
+# Conclusions
+
+## Row
+
+::: {.card title="My Thoughts On The Corpus"}
+In some ways, I feel this corpus has ended up being more of a case study on MIR features than it has been a real answering to my original research question. Some of this, in my opinion, is just due to the nature of how this corpus project is necessarily done, as doing tempograms or chromagrams is naturally more interesting when you find unusual conclusions rather than simple, obvious answers. The obvious answers are only interesting when presented on large scales that show broader data trends, and doing just a couple chromagrams or SSMs just doesn't allow for that possibility. Regardless, I think the failures I encountered were super interesting. Watching these methods fail has given me new insights into how they work, such as the super unexpected chromagram for "Say You Will" that I expected to be far simpler than it turned out.
+
+The two broader conclusions I have come to are:
+
+The variance within albums, at least by computational metrics and particularly by Spotify features, is far greater than the variance from album to album, and;
+
+My predictions on how each album would align, in regards to the other albums released by the same artist, were generally wrong, at least, again, by computational metrics and Spotify features.
+
+For example, the Valence on "Yeezus" is obviously not high, and I expected it to be decently low, but Spotify overall rates it as the same valence as "808s & Heartbreak". Based on my personal experiences, I would NEVER listen to these albums in the same mood as each other, as they have very specific feels and meanings to me. But, while I don't agree with a lot of Spotify's judgements, I'm certainly not the possessor of objective knowledge, so what do I know?
+
+As a result, I think anyone looking for larger analyses of these albums wouldn't benefit too much from what I have shown here. However, someone looking for a deeper insight into how these metrics are calculated would greatly benefit, as I stumbled across a number of quirks in MIR tools that I felt were super cool.
+
+This is also not to say that nobody would benefit from my Chromagrams, SSMs, or Tempograms. By understanding the limitations of MIR tools, things such as my "I Love Kanye" tempogram, which failed at providing a clear answer for a tempo, instead point you in a direction of what else to consider for the track, telling you that this track is really not a typical track with common instrumentation or structure. Similarly, my SSM for "The New Workout Plan" by Kanye West does not tell you much structural information, but it is obvious there is structure to the song. Instead, my SSM alerts you to what may be missing in a computational analysis of structure. Things such as collapsing stereo audio to mono and compressing audio for better data efficiency are great for speed and efficiency, but they are far from lossless, and it can be easy to forget how much of an impact those simple actions can have. I had never considered what made the structure of this song, but I knew it implicitly, not explicitly. Knowing that this track has structure and seeing how badly a timbral analysis of it failed made me question why I could so easily pick out the structure and the SSM couldn't - and I already knew the answer was not pitch, so it had to be something totally different. Had I never done this failed SSM, I would have never even realized what makes this song so unique.
+
+As a whole, I feel that my corpus and my computational analysis has unfortunately not made much progress in understanding the corpus itself, but the insights my failed attempts provide makes this corpus analysis valuable in its own way.
 :::
